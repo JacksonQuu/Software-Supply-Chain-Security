@@ -6,8 +6,8 @@ import base64
 import json
 import os
 import requests
-from util import extract_public_key, verify_artifact_signature
-from merkle_proof import (
+from rekor_monitor_jacksonqu.util import extract_public_key, verify_artifact_signature
+from rekor_monitor_jacksonqu.merkle_proof import (
     DefaultHasher,
     verify_consistency,
     verify_inclusion,

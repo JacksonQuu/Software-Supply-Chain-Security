@@ -1,6 +1,10 @@
 import json
+import os
 from jsonschema import validate
 import subprocess
+
+# env = os.environ.copy()
+# env["PYTHONPATH"] = os.path.abspath("rekor_monitor_jacksonqu")
 
 checkpoint_schema = {
     "type": "object",
@@ -16,11 +20,11 @@ checkpoint_schema = {
 
 def test_checkpoint():
     result = subprocess.run(
-        ["python", "main.py", "-c"],
+        ["python", "rekor_monitor_jacksonqu/main.py", "-c"],
         capture_output=True,
         text=True
     )
-    assert result.returncode == 0, f"Test failed. Error message:\n{result.stdout}"
+    assert result.returncode == 0, f"Test failed. Error message:\n{result.stderr}"
     output = result.stdout
     data = json.loads(output)
     validate(instance=data, schema=checkpoint_schema)

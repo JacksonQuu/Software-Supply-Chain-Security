@@ -5,7 +5,7 @@ def test_inclusion():
     Using wrong artifact
     """
     result = subprocess.run(
-        ["python", "main.py",
+        ["python", "rekor_monitor_jacksonqu/main.py",
          "--inclusion", "128595953",
          "--artifact", "README.md"],
         capture_output=True,
