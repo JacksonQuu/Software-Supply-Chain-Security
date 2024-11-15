@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "rekor-monitor-jacksonqu"
-version = "4.0.0"
+version = "4.0.1"
 description = "Verify your software using trusted supply chains."
 authors = ["JacksonQu <200074quhaoning@gmail.com>"]
 readme = "README.md"
+homepage = "https://github.com/JacksonQu/Software-Supply-Chain-Security-Assignment1"
+repository = "https://github.com/JacksonQu/Software-Supply-Chain-Security-Assignment1"
 
 [tool.poetry.dependencies]
 python = "^3.10"
