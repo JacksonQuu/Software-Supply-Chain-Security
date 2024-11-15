@@ -6,7 +6,7 @@ def test_consistency():
     It will not affect the consistency verification results
     """
     result = subprocess.run(
-        ["python", "main.py", "--consistency",
+        ["python", "rekor_monitor_jacksonqu/main.py", "--consistency",
          "--tree-id", "1234567",
          "--tree-size", "21769644",
          "--root-hash",
@@ -14,7 +14,7 @@ def test_consistency():
         capture_output=True,
         text=True
     )
-    assert result.returncode == 0, f"Test failed. Error message:\n{result.stdout}"
+    assert result.returncode == 0, f"Test failed. Error message:\n{result.stderr}"
 
 if __name__ == "__main__":
     test_consistency()

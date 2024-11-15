@@ -5,7 +5,7 @@ def test_consistency():
     Using wrong root-hash
     """
     result = subprocess.run(
-        ["python", "main.py", "--consistency",
+        ["python", "rekor_monitor_jacksonqu/main.py", "--consistency",
          "--tree-id", "6691691",
          "--tree-size", "21769644",
          "--root-hash",

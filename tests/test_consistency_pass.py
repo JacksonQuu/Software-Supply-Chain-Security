@@ -2,7 +2,7 @@ import subprocess
 
 def test_consistency():
     result = subprocess.run(
-        ["python", "main.py", "--consistency",
+        ["python", "rekor_monitor_jacksonqu/main.py", "--consistency",
          "--tree-id", "6691691",
          "--tree-size", "21769644",
          "--root-hash",
@@ -10,7 +10,7 @@ def test_consistency():
         capture_output=True,
         text=True
     )
-    assert result.returncode == 0, f"Test failed. Error message:\n{result.stdout}"
+    assert result.returncode == 0, f"Test failed. Error message:\n{result.stderr}"
 
 if __name__ == "__main__":
     test_consistency()

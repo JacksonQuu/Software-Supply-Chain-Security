@@ -1,6 +1,4 @@
-import json
 import os
-from jsonschema import validate
 import subprocess
 
 checkpoint_schema = {
@@ -21,7 +19,7 @@ env["https_proxy"] = "http://0.0.0.0:0"
 
 def test_checkpoint():
     result = subprocess.run(
-        ["python", "main.py", "-c"],
+        ["python", "rekor_monitor_jacksonqu/main.py", "-c"],
         env=env,
         capture_output=True,
         text=True

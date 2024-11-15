@@ -5,7 +5,7 @@ def test_inclusion():
     Using wrong logID
     """
     result = subprocess.run(
-        ["python", "main.py",
+        ["python", "rekor_monitor_jacksonqu/main.py",
          "--inclusion", "123456789",
          "--artifact", "artifact.md"],
         capture_output=True,
