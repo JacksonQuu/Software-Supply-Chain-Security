@@ -35,25 +35,25 @@ jobs:
 
       - name: Run ruff
         run: |
-          ruff check .
+          poetry run ruff check .
         working-directory: ${{ github.workspace }}
 
       - name: Run pylint
         run: |
-          pylint --ignore=tests .
+          poetry run pylint --ignore=tests .
         working-directory: ${{ github.workspace }}
 
       - name: Run bandit
         run: |
-          bandit -r . -x ./tests
+          poetry run bandit -r . -x ./tests
         working-directory: ${{ github.workspace }}
 
       - name: Run trufflehog
         run: |
-          trufflehog filesystem .
+          poetry run trufflehog filesystem .
         working-directory: ${{ github.workspace }}
 
       - name: Run pytest
         run: |
-          PYTHONPATH=. pytest
+          PYTHONPATH=. poetry run pytest
         working-directory: ${{ github.workspace }}
