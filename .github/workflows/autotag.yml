@@ -1,7 +1,9 @@
 name: Auto tag
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   create-tag:
