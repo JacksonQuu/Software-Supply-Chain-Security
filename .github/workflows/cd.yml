@@ -63,13 +63,19 @@ jobs:
 
       - name: Display tag info
         run: |
-          echo "Triggered by ${{ github.event_name }}"
-          echo "Tag: ${{ github.ref_name }}"
+          if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
+            tag=${{ needs.auto_tag.outputs.tag }}
+            echo "Triggered by workflow_run. Tag from previous action: $tag"
+          else
+            tag=${{ github.ref_name }}
+            echo "Triggered by push. Tag: $tag"
+          fi
+          echo "tag_name=$tag" >> $GITHUB_ENV
 
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: ${{ env.tag_name }}
           files: |
             dist/*
             cyclonedx-sbom.json
