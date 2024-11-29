@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rekor-monitor-jacksonqu"
-version = "4.0.6"
+version = "4.0.7"
 description = "Verify your software using trusted supply chains."
 authors = ["JacksonQu <200074quhaoning@gmail.com>"]
 readme = "README.md"
