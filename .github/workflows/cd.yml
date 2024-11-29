@@ -60,10 +60,16 @@ jobs:
         with:
           subject-path: '${{ github.workspace }}/dist/*.whl'
           sbom-path: '${{ github.workspace }}/cyclonedx-sbom.json'
-      
+
+      - name: Display tag info
+        run: |
+          echo "Triggered by ${{ github.event_name }}"
+          echo "Tag: ${{ github.ref_name }}"
+
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.ref_name }}
           files: |
             dist/*
             cyclonedx-sbom.json
