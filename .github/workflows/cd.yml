@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -64,8 +66,8 @@ jobs:
       - name: Display tag info
         run: |
           if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
-            tag=${{ needs.auto_tag.outputs.tag }}
-            echo "Triggered by workflow_run. Tag from previous action: $tag"
+            tag=$(git describe --tags --abbrev=0)
+            echo "Triggered by workflow_run. Tag from latest tag: $tag"
           else
             tag=${{ github.ref_name }}
             echo "Triggered by push. Tag: $tag"
