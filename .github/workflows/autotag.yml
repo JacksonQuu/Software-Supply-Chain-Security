@@ -28,6 +28,8 @@ jobs:
         run: |
           version=$(python -c "import tomli; print(tomli.load(open('pyproject.toml', 'rb'))['tool']['poetry']['version'])")
           echo "version=$version" >> $GITHUB_ENV
+          echo "tag=v$version" >> $GITHUB_ENV
+          echo "::set-output name=tag::${{ env.tag }}"
         working-directory: ${{ github.workspace }}
 
       - name: Create and push tag
