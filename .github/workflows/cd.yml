@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - '*'
+  workflow_run:
+    workflows: ['Auto tag']
+    types:
+      - completed
 
 jobs:
   build-release:
