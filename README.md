@@ -2,6 +2,10 @@
 
 Verify your software using trusted supply chains.
 
+![Release status](https://github.com/JacksonQuu/Software-Supply-Chain-Security/actions/workflows/cd.yml/badge.svg)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/JacksonQuu/Software-Supply-Chain-Security/badge)](https://scorecard.dev/viewer/?uri=github.com/JacksonQuu/Software-Supply-Chain-Security)
+[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/9753/badge)](https://bestpractices.coreinfrastructure.org/en/projects/9753)
+
 ## Description
 
 This repository uses `Rekor API`, a tool that helps improve security in software supply chains by providing immutable records of software build metadata. This repository includes code that interacts with Rekor's API and verifies the consistency using transparency logs.
