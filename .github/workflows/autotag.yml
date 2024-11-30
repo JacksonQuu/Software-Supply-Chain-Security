@@ -29,6 +29,8 @@ jobs:
         id: extract_version
         run: |
           version=$(python -c "import tomli; print(tomli.load(open('pyproject.toml', 'rb'))['tool']['poetry']['version'])")
+          echo "version: $version"
+          echo "tag: v$version"
           echo "version=$version" >> $GITHUB_ENV
         working-directory: ${{ github.workspace }}
 
@@ -42,7 +44,8 @@ jobs:
           if git rev-parse "v$version" >/dev/null 2>&1; then
             echo "Tag v$version already exists."
             exit 0
+          else
+            echo "Tag v$version does not exist."
+            git tag "v$version"
+            git push origin "v$version"
           fi
-
-          git tag "v$version"
-          git push origin "v$version"
